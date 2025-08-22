@@ -250,8 +250,7 @@ exports.getFeeSummary = async (req, res) => {
 
     const fees = await Fee.find({ studentId: student._id });
     const { paidMonths, dueMonths, totalPaid } = getFeeStatus(
-      student.dateOfJoining,
-      fees,
+
       student.inactivePeriods
     );
 
@@ -316,7 +315,7 @@ exports.listFees = async (req, res) => {
 
     const formattedFees = fees.map(fee => {
       const { paidMonths, dueMonths } = getFeeStatus(
-        [fee], // Single fee record
+       // Single fee record
         fee.studentId.inactivePeriods
       );
 
