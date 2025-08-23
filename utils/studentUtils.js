@@ -4,11 +4,7 @@ const mongoose = require('mongoose');
 const isValidObjectId = (id) => mongoose.Types.ObjectId.isValid(id);
 
 // Check if date falls in an inactive period
-const isInInactivePeriod = (date, inactivePeriods = []) => {
-  return inactivePeriods.some(period => {
-    return date >= new Date(period.from) && date <= new Date(period.to);
-  });
-};
+
 
 
 // Month conversion helper function
