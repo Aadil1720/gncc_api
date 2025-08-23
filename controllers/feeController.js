@@ -249,9 +249,8 @@ exports.getFeeSummary = async (req, res) => {
     }
 
     const fees = await Fee.find({ studentId: student._id });
-    const { paidMonths, dueMonths, totalPaid } = getFeeStatus(,
-      fees,
-      student.inactivePeriods
+    const { paidMonths, dueMonths, totalPaid } = getFeeStatus(
+      fees, student.inactivePeriods
     );
 
     res.status(200).json({
